@@ -1,0 +1,32 @@
+public class EJERCICIO2 {
+    public static void main(String[] args) {
+        Mascota numero1 = new Mascota("Pepa", "Lorito", 6);//pongo el numero1 por si agrego otra mascota//
+
+        numero1.mostrarInfo();
+
+        numero1.cumplirAnios();
+
+        numero1.mostrarInfo();
+    }
+}
+
+class Mascota {
+    String nombre;
+    String especie;
+    int edad;
+
+    Mascota(String nombre, String especie, int edad) {
+        this.nombre = nombre;
+        this.especie = especie;
+        this.edad = edad;
+    }
+
+    void mostrarInfo() {
+        System.out.println("Mascota: " + nombre + " | Especie: " + especie + " | Edad: " + edad + " años");
+    }
+
+    void cumplirAnios() {
+        edad++;
+        System.out.println(nombre + " cumplió un año más. Nueva edad: " + edad);
+    }
+}
