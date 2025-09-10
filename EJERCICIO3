@@ -1,0 +1,44 @@
+public class EJERCICIO3 {
+    public static void main(String[] args) {
+        // Crear un libro
+        Libro l1 = new Libro("El principito", "Antoine de Saint-Exupéry", 1943);
+
+        l1.mostrarInfo();
+
+        l1.setAnioPublicacion(1200);  
+
+        l1.setAnioPublicacion(2000);
+
+        l1.mostrarInfo();
+    }
+}
+
+class Libro {
+    private String titulo;
+    private String autor;
+    private int anioPublicacion;
+
+    Libro(String titulo, String autor, int anioPublicacion) {
+        this.titulo = titulo;
+        this.autor = autor;
+        setAnioPublicacion(anioPublicacion); 
+    }
+
+    // Getters
+    public String getTitulo() { return titulo; }
+    public String getAutor() { return autor; }
+    public int getAnioPublicacion() { return anioPublicacion; }
+
+    // Setter con validación
+    public void setAnioPublicacion(int anio) {
+        if (anio >= 1450 && anio <= 2025) { 
+            this.anioPublicacion = anio;
+        } else {
+            System.out.println("⚠ Año inválido: " + anio + ". No se modificó.");
+        }
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Libro: " + titulo + " | Autor: " + autor + " | Año: " + anioPublicacion);
+    }
+}
