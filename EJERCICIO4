@@ -1,0 +1,45 @@
+public class EJERCICIO4 {
+    public static void main(String[] args) {
+        Gallina N1 = new Gallina(1, 2);  
+        Gallina N2 = new Gallina(2, 1);  
+
+        N1.ponerHuevo();
+        N1.envejecer();
+        N1.ponerHuevo();
+        N1.envejecer();
+        N1.mostrarEstado();
+
+        System.out.println();
+
+        N2.ponerHuevo();
+        N2.ponerHuevo();
+        N2.envejecer();
+        N2.mostrarEstado();
+    }
+}
+
+class Gallina {
+    int idGallina;
+    int edad;
+    int huevosPuestos;
+
+    Gallina(int idGallina, int edad) {
+        this.idGallina = idGallina;
+        this.edad = edad;
+        this.huevosPuestos = 0;
+    }
+
+    void ponerHuevo() {
+        huevosPuestos++;
+        System.out.println("Gallina " + idGallina + " puso un huevo. Total: " + huevosPuestos);
+    }
+
+    void envejecer() {
+        edad++;
+        System.out.println("Gallina " + idGallina + " cumplió un año más. Edad: " + edad);
+    }
+
+    void mostrarEstado() {
+        System.out.println("Gallina " + idGallina + " | Edad: " + edad + " | Huevos puestos: " + huevosPuestos);
+    }
+}
