@@ -1,0 +1,39 @@
+public class EJERCICIO1 {
+
+    public static void main(String[] args) {
+        // Creamos un estudiante
+        Estudiante NUMERO1 = new Estudiante("Tomas", "Gonzalez", "Literatura", 1.0);
+        NUMERO1.mostrarInfo();
+        NUMERO1.subirCalificacion(10.0);
+        NUMERO1.bajarCalificacion(5.0);
+    }
+}
+class Estudiante {
+    String nombre;
+    String apellido;
+    String curso;
+    double calificacion;
+
+    Estudiante(String nombre, String apellido, String curso, double calificacion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.curso = curso;
+        this.calificacion = calificacion;
+    }
+
+    void mostrarInfo() {
+        System.out.println("Estudiante: " + nombre + " " + apellido +
+                " | Curso: " + curso + " | Calificación: " + calificacion);
+    }
+
+    void subirCalificacion(double puntos) {
+        calificacion += puntos;
+        System.out.println("Subió la calificación. Nueva: " + calificacion);
+    }
+
+    void bajarCalificacion(double puntos) {
+        calificacion -= puntos;
+        if (calificacion < 0) calificacion = 0;
+        System.out.println("Bajó la calificación. Nueva: " + calificacion);
+    }
+}
