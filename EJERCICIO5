@@ -1,0 +1,61 @@
+public class EJERCICIO5 {
+    public static void main(String[] args) {
+        
+        NaveEspacial nave = new NaveEspacial("Apolo", 50);
+
+        nave.mostrarEstado();
+
+        nave.avanzar(100);
+
+        nave.recargarCombustible(10);
+
+        nave.despegar();
+        nave.avanzar(200);
+
+        nave.mostrarEstado();
+    }
+}
+
+class NaveEspacial {
+    String nombre;
+    int combustible;
+    final int MAX_COMBUSTIBLE = 100;
+
+    NaveEspacial(String nombre, int combustible) {
+        this.nombre = nombre;
+        this.combustible = combustible;
+    }
+
+    void despegar() {
+        if (combustible >= 10) {
+            combustible -= 10;
+            System.out.println(nombre + " despegó. Combustible restante: " + combustible);
+        } else {
+            System.out.println(nombre + " no tiene suficiente combustible para despegar.");
+        }
+    }
+
+    void avanzar(int distancia) {
+        int consumo = distancia / 10; 
+        if (combustible >= consumo) {
+            combustible -= consumo;
+            System.out.println(nombre + " avanzó " + distancia + " km. Combustible restante: " + combustible);
+        } else {
+            System.out.println(nombre + " no tiene suficiente combustible para avanzar " + distancia + " km.");
+        }
+    }
+
+    void recargarCombustible(int cantidad) {
+        if (combustible + cantidad > MAX_COMBUSTIBLE) {
+            combustible = MAX_COMBUSTIBLE;
+            System.out.println("Tanque lleno al máximo (" + MAX_COMBUSTIBLE + ")");
+        } else {
+            combustible += cantidad;
+            System.out.println("Se recargó combustible. Nivel actual: " + combustible);
+        }
+    }
+
+    void mostrarEstado() {
+        System.out.println("Nave: " + nombre + " | Combustible: " + combustible + "/" + MAX_COMBUSTIBLE);
+    }
+}
